@@ -1,86 +1,315 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>CL — 学术蓝示意站</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-/* 颜色与风格设定（学术蓝为主色） */
-:root{
---academic-blue: #1f4e79; /* 主色 */
---accent: #2b6ca3;
---muted: #677892;
---bg: #f6f8fb;
---card: #ffffff;
---max-width: 1150px;
---radius: 12px;
---elevation: 0 6px 20px rgba(31,78,121,0.08);
---mono-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-}
-*{box-sizing: border-box}
-html,body{height:100%}
-body{
-margin:0;
-font-family:var(--mono-font);
-background:linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
-color:#172036;
--webkit-font-smoothing:antialiased;
--moz-osx-font-smoothing:grayscale;
-padding:32px 20px;
-display:flex;
-justify-content:center;
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CL — 学术蓝示意站</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* 颜色与风格设定（学术蓝为主色） */
+    :root{
+      --academic-blue: #1f4e79; /* 主色 */
+      --accent: #2b6ca3;
+      --muted: #677892;
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --max-width: 1150px;
+      --radius: 12px;
+      --elevation: 0 6px 20px rgba(31,78,121,0.08);
+      --mono-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--mono-font);
+      background:linear-gradient(180deg, #f7f9fc 0%, var(--bg) 100%);
+      color:#172036;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px 20px;
+      display:flex;
+      justify-content:center;
+    }
 
+    /* page container */
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      background:transparent;
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      gap:24px;
+      align-items:start;
+    }
 
-/* page container */
-.wrap{
-width:100%;
-max-width:var(--max-width);
-background:transparent;
-display:grid;
-grid-template-columns: 260px 1fr;
-gap:24px;
-align-items:start;
-}
+    /* 左侧树形导航 */
+    aside.sidebar{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--elevation);
+      padding:18px;
+      height:calc(100vh - 64px);
+      overflow:auto;
+      position:sticky; top:32px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;margin-bottom:14px
+    }
+    .logo{
+      width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--academic-blue),var(--accent));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
+      box-shadow:0 6px 18px rgba(31,78,121,0.12)
+    }
+    .sitename{font-weight:700;color:var(--academic-blue);}
+    .sidebar .search{
+      margin:10px 0 16px;display:flex;gap:8px
+    }
+    .sidebar input[type=search]{flex:1;padding:8px 10px;border-radius:8px;border:1px solid #e6ebf4}
 
+    /* tree nav */
+    .tree{list-style:none;padding:0;margin:0;font-size:14px}
+    .tree li{margin:6px 0}
+    .tree .top{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:8px;border-radius:8px}
+    .tree .top:hover{background:#f3f7fb}
+    .tree .top .title{font-weight:600;color:var(--academic-blue)}
+    .tree .children{padding-left:12px;margin-top:6px;display:none}
+    .tree .children a{display:block;padding:6px 8px;border-radius:6px;text-decoration:none;color:var(--muted)}
+    .tree .children a:hover{background:#f2f6fb;color:var(--academic-blue)}
 
-/* 左侧树形导航 */
-aside.sidebar{
-background:var(--card);
-border-radius:var(--radius);
-box-shadow:var(--elevation);
-padding:18px;
-height:calc(100vh - 64px);
-overflow:auto;
-position:sticky; top:32px;
-}
-.brand{
-display:flex;align-items:center;gap:12px;margin-bottom:14px
-}
-.logo{
-width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--academic-blue),var(--accent));
-display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
-box-shadow:0 6px 18px rgba(31,78,121,0.12)
-}
-.sitename{font-weight:700;color:var(--academic-blue);}
-.sidebar .search{
-margin:10px 0 16px;display:flex;gap:8px
-}
-.sidebar input[type=search]{flex:1;padding:8px 10px;border-radius:8px;border:1px solid #e6ebf4}
+    /* 右侧主要内容 */
+    main{
+      min-height:600px;
+      background:transparent;
+      padding:6px;
+    }
+    .panel{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--elevation);
+      padding:22px;
+      margin-bottom:18px;
+    }
+    header.hero{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px
+    }
+    .hero-left{display:flex;flex-direction:column;gap:6px}
+    .hero .title{font-size:22px;font-weight:700;color:var(--academic-blue)}
+    .hero .subtitle{color:var(--muted);font-size:14px}
 
+    /* content grid to mimic fourbooks layout */
+    .grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px
+    }
+    .card{
+      background:linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      border-radius:10px;padding:14px;border:1px solid #eef4fb;min-height:140px
+    }
+    .card h3{margin:0 0 8px;font-size:16px;color:var(--academic-blue)}
+    .card p{margin:0;color:var(--muted);font-size:13px}
 
-/* tree nav */
-.tree{list-style:none;padding:0;margin:0;font-size:14px}
-.tree li{margin:6px 0}
-.tree .top{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:8px;border-radius:8px}
-.tree .top:hover{background:#f3f7fb}
-.tree .top .title{font-weight:600;color:var(--academic-blue)}
-.tree .children{padding-left:12px;margin-top:6px;display:none}
-.tree .children a{display:block;padding:6px 8px;border-radius:6px;text-decoration:none;color:var(--muted)}
-.tree .children a:hover{background:#f2f6fb;color:var(--academic-blue)}
+    /* responsive */
+    @media (max-width:1000px){
+      .wrap{grid-template-columns:1fr;}
+      aside.sidebar{position:relative;height:auto}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr}
+      .hero .title{font-size:18px}
+    }
 
+    /* small helper styles */
+    .meta{font-size:12px;color:var(--muted);margin-top:8px}
+    .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:8px}
 
-/* 右侧主要内容 */
+    /* tree chevron */
+    .chev{transition:transform .18s ease}
+    .open > .chev{transform:rotate(90deg)}
+
+  </style>
+</head>
+<body>
+  <div class="wrap" role="application" aria-label="CL 学术站示意布局">
+    <aside class="sidebar" aria-label="左侧栏目导航">
+      <div class="brand">
+        <div class="logo">CL</div>
+        <div>
+          <div class="sitename">CL 学术库</div>
+          <div style="font-size:12px;color:var(--muted)">示意版 · 学术蓝主题</div>
+        </div>
+      </div>
+
+      <div class="search">
+        <input type="search" placeholder="搜索栏目/文档" aria-label="搜索输入" />
+        <button aria-label="搜索按钮">🔍</button>
+      </div>
+
+      <nav>
+        <ul class="tree" id="navTree">
+          <!-- 五个一级栏目，每个有二级三级示例 -->
+          <li>
+            <div class="top" data-key="1" tabindex="0">
+              <div><span class="title">栏目一 · 学术资源</span></div>
+              <div class="chev">▶</div>
+            </div>
+            <div class="children">
+              <a href="#">二级：期刊</a>
+              <a href="#">二级：会议</a>
+              <a href="#">二级：研究报告</a>
+              <div style="padding-left:8px;margin-top:6px;font-size:13px;color:var(--muted)">三级示例：</div>
+              <a href="#" style="padding-left:16px">三级：年度综述</a>
+              <a href="#" style="padding-left:16px">三级：方法论档案</a>
+            </div>
+          </li>
+
+          <li>
+            <div class="top" data-key="2" tabindex="0">
+              <div><span class="title">栏目二 · 文章与评论</span></div>
+              <div class="chev">▶</div>
+            </div>
+            <div class="children">
+              <a href="#">二级：编辑推荐</a>
+              <a href="#">二级：读者点评</a>
+              <a href="#">二级：翻译与注释</a>
+            </div>
+          </li>
+
+          <li>
+            <div class="top" data-key="3" tabindex="0">
+              <div><span class="title">栏目三 · 专题集合</span></div>
+              <div class="chev">▶</div>
+            </div>
+            <div class="children">
+              <a href="#">二级：专题A</a>
+              <a href="#">二级：专题B</a>
+              <a href="#">二级：专题C</a>
+              <a href="#" style="padding-left:16px">三级：专题C — 数据可视化</a>
+            </div>
+          </li>
+
+          <li>
+            <div class="top" data-key="4" tabindex="0">
+              <div><span class="title">栏目四 · 数据与工具</span></div>
+              <div class="chev">▶</div>
+            </div>
+            <div class="children">
+              <a href="#">二级：开源数据</a>
+              <a href="#">二级：软件工具</a>
+              <a href="#">二级：API 文档</a>
+            </div>
+          </li>
+
+          <li>
+            <div class="top" data-key="5" tabindex="0">
+              <div><span class="title">栏目五 · 关于 & 联系</span></div>
+              <div class="chev">▶</div>
+            </div>
+            <div class="children">
+              <a href="#">二级：关于我们</a>
+              <a href="#">二级：加入我们</a>
+              <a href="#">二级：版权声明</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+    </aside>
+
+    <main>
+      <section class="panel hero" aria-label="页面头部">
+        <div class="hero-left">
+          <div class="breadcrumb">首页 / 资料库</div>
+          <div class="title">CL 学术资源示意页</div>
+          <div class="subtitle">页面架构与栏目层级仿照 fourbooks.org，颜色以学术蓝为主，左侧为树形导航示意。</div>
+        </div>
+        <div style="min-width:220px;text-align:right">
+          <div style="font-size:13px;color:var(--muted)">快速链接</div>
+          <div style="margin-top:8px;display:flex;gap:8px;justify-content:flex-end">
+            <button style="padding:8px 12px;border-radius:8px;border:1px solid #e2eefc;background:white">发布</button>
+            <button style="padding:8px 12px;border-radius:8px;background:var(--academic-blue);color:white;border:none">捐赠</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0;font-size:16px;color:var(--academic-blue)">最新文章与专题</h2>
+          <div class="meta">显示按照示意大小与位置</div>
+        </div>
+
+        <div class="grid" aria-live="polite">
+          <article class="card">
+            <h3>示例：深入研究弹幕文化</h3>
+            <p>本文从多模态角度分析弹幕与公民话语的互动，包含大量案例与方法论示例。</p>
+            <div class="meta">标签 · 文化研究 · 2025-08-01</div>
+          </article>
+
+          <article class="card">
+            <h3>示例：游戏与观众参与</h3>
+            <p>讨论观众在游戏改编文本中的参与方式与文化含义。</p>
+            <div class="meta">标签 · 媒介研究 · 2025-07-22</div>
+          </article>
+
+          <article class="card">
+            <h3>示例：方法论指南</h3>
+            <p>面向研究者的工具与数据集推荐，帮助复现研究过程。</p>
+            <div class="meta">标签 · 方法论 · 2025-06-15</div>
+          </article>
+
+          <article class="card">
+            <h3>示例：翻译研究精选</h3>
+            <p>精选译文与注释，展示跨文化翻译的案例。</p>
+            <div class="meta">标签 · 翻译学 · 2025-03-02</div>
+          </article>
+
+          <article class="card">
+            <h3>示例：评论与书评</h3>
+            <p>书评节选与学术评论，适合教学与课堂讨论使用。</p>
+            <div class="meta">标签 · 书评 · 2025-01-20</div>
+          </article>
+
+          <article class="card">
+            <h3>示例：数据可视化作品</h3>
+            <p>可交互示意图与结果展示（静态示例）。</p>
+            <div class="meta">标签 · 可视化 · 2024-12-12</div>
+          </article>
+        </div>
+
+      </section>
+
+      <section class="panel">
+        <h3 style="margin-top:0">页面结构示意</h3>
+        <p style="color:var(--muted)">此页面为单页示意。左栏为树形层级导航（5 个一级栏目，若干二级/三级示例）。右侧顶部为站点说明与快速操作，主体采用多列卡片布局，便于展示文章、专题与数据。</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // 简单脚本：切换树形导航展开/收起
+    document.querySelectorAll('.tree .top').forEach(function(node){
+      node.addEventListener('click', function(e){
+        var parent = node.parentElement;
+        var children = parent.querySelector('.children');
+        var isOpen = parent.classList.contains('open');
+        if(isOpen){
+          children.style.display = 'none';
+          parent.classList.remove('open');
+        } else {
+          children.style.display = 'block';
+          parent.classList.add('open');
+        }
+      });
+      node.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ node.click(); }
+      })
+    });
+
+    // 可选：默认展开第一个
+    var first = document.querySelector('.tree li');
+    if(first){ first.classList.add('open'); var c=first.querySelector('.children'); if(c) c.style.display='block'; }
+  </script>
+</body>
 </html>

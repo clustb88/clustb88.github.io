@@ -1,365 +1,209 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BlogPost template by Adobe Dreamweaver</title>
-<style type="text/css">
-#mainwrapper header {
-	/*Header */
-	background-color: rgba(208,207,207,1.00);
-	overflow: auto;
-	font-family: montserrat, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-}
-#mainwrapper header #logo {
-	/* Company Logo text */
-	width: 28%;
-	float: left;
-	padding-left: 2%;
-	padding-top: 12px;
-	padding-bottom: 12px;
-	color: rgba(146,146,146,1.00);
-}
-#mainwrapper header nav {
-	/*Nav bar containing links in header */
-	text-align: right;
-	padding-top: 12px;
-	padding-bottom: 12px;
-	padding-right: 2%;
-	width: 68%;
-	float: left;
-	color: rgba(146,146,146,1.00);
-}
-header nav a {
-	/* Links in header */
-	padding-right: 2%;
-}
-#content #mainContent h1, #content #mainContent h2 {
-	/* Styling for main headings */
-	color: rgba(146,146,146,1.00);
-}
-#content #mainContent h3 {
-	/*Captions ot Taglines */
-	font-family: source-sans-pro, sans-serif;
-	font-style: normal;
-	font-weight: 200;
-	color: rgba(146,146,146,1.00);
-}
-#content #mainContent #bannerImage {
-	/*Container for main banner image */
-	width: 100%; height: 100px;
-	background-color: rgba(46,177,227,1.00);
-}
-#content #mainContent p {
-	/* All paragraphs under maincontent */
-	color: rgba(146,146,146,1.00);
-	font-family: source-sans-pro, sans-serif;
-	font-style: normal;
-	font-weight: 200;
-	text-align: justify;
-}
-#content #mainContent #authorInfo {
-	/* Author info section */
-	background-color: rgba(208,207,207,1.00);
-}
-#content #mainContent #authorInfo h2, #content #mainContent #authorInfo p {
-	color: rgba(255,255,255,1.00);
-	padding-left: 2%;
-	padding-top: 11px;
-}
-#content #mainContent #authorInfo p {
-	color: rgba(255,255,255,1.00);
-	padding-left: 2%;
-	padding-top: 0px;
-	padding-bottom: 11px;
-	padding-right: 2%;
-}
-footer article {
-	/* Footer articles */
-	width: 46%;
-	float: left;
-	padding-left: 2%;
-	padding-right: 2%;
-	text-align: justify;
-	font-family: source-sans-pro, sans-serif;
-	font-style: normal;
-	font-weight: 200;
-	color: rgba(146,146,146,1.00);
-}
-footer article h3 {
-	/* Footer article titles */
-	text-align: center;
-	font-family: montserrat, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-}
-#mainContent {
-	/* Container for the blog post in individal blog view */
-	padding-left: 2%;
-	width: 71%;
-	float: left;
-	padding-right: 2%;
-	padding-top: 41px;
-}
-#mainwrapper #content #sidebar {
-	/* Sidebar*/
-	width: 19%;
-	padding-left: 2%;
-	padding-right: 2%;
-	float: left;
-	background-color: rgba(246,246,246,1.00);
-	margin-top: 150px;
-	padding-top: 32px;
-}
-#mainwrapper {
-	/* Container of all content */
-	width: 80%;
-	overflow: auto;
-	margin-left: 10%;
-}
-#content #sidebar input {
-	/* Search box in sidebar */
-	width: 98%;
-	height: 32px;
-}
-#content #sidebar #adimage {
-	/* Container for Image in sidebar */
-	width: 100%; height: 100px;
-	background-color: rgba(50,207,207,1.00);
-	margin-top: 46px;
-	float: none;
-	overflow: auto;
-}
-nav ul li {
-	list-style-type: none;
-	padding-top: 8px;
-	padding-bottom: 8px;
-}
-nav ul {
-	padding-left: 0%;
-}
-nav ul li a {
-	color: rgba(146,146,146,1.00);
-	text-decoration: none;
-}
-#footerbar {
-	/* Footer bar at the bottom of the page */
-	height: 18px;
-	clear: both;
-	background-color: rgba(208,207,207,1.00);
-	width: 100%;
-}
-footer {
-	/* Container for footer artices */
-	width: 71%;
-	padding-left: 2%;
-	padding-right: 2%;
-}
-.notOnDesktop {
-	/*element to be displayed only in mobile view and tabet view */
-	display: none;
-}
-#mainContent #bannerImage img {
-	/* Actual banner image */
-	width: 100%;
-}
-#sidebar #adimage img {
-	/* Image in sidebar */
-	width: 100%;
-	float: left;
-}
-#mainwrapper header nav a {
-	/* Links in header */
-	color: rgba(146,146,146,1.00);
-	text-decoration: none;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式网页</title>
+    <style>
+        /* CSS 样式部分 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex; /* 使用 Flexbox 布局 */
+            min-height: 100vh;
+        }
 
-/* Tablet view */
-@media screen and (max-width:769px) {
-.notOnDesktop {
-	/* Search box shown only in mobile view and Tablet view */
-	display: block;
-	text-align: right;
-	padding-right: 8px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	width: 96%;
-}
-#content .notOnDesktop input {
-	height: 28px;
-}
-#mainContent {
-	/* Container for the blog post */
-	padding-top: 0px;
-	float: none;
-	width: 96%;
-}
-#sidebar input {
-	/* Search box in sidebar */
-	display: none;
-}
-#mainwrapper #content #sidebar {
-	/* Sidebar*/
-	float: none;
-	width: 92%;
-	padding-top: 13px;
-	overflow: auto;
-	margin-top: 3px;
-	margin-left: 2%;
-	padding-bottom: 13px;
-}
-#content #sidebar #adimage {
-	/* Image in sidebar */
-	width: 60%;
-	margin-top: 0px;
-	float: left;
-}
-#content #sidebar nav {
-	/* Navigation links in sidebar */
-	width: 36%;
-	float: left;
-	padding-left: 4%;
-}
-#sidebar nav ul {
-	margin-top: 0px;
-}
-footer {
-	/* Footer region */
-	width: 96%;
-	padding-left: 2%;
-	padding-right: 2%;
-}
-#content footer article {
-	/*Each footer article */
-	width: 46%;
-}
-#mainwrapper header {
-	/* Header */
-	width: 100%;
-}
-}
+        /* 左侧导航栏样式 */
+        .sidebar {
+            width: 20%;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-sizing: border-box; /* 包含 padding 和 border */
+            border-right: 1px solid #ccc;
+            overflow-y: auto; /* 超出部分可滚动 */
+        }
+        .nav-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none; /* 默认隐藏子菜单 */
+        }
+        .nav-item {
+            padding: 10px 0;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+        .nav-item:hover {
+            background-color: #e9e9e9;
+        }
+        /* 子菜单样式 */
+        .sub-nav-list {
+            padding-left: 20px;
+            list-style: none;
+        }
 
-/* Mobile view */
-@media screen and (max-width:480px) {
-#mainwrapper header #logo {
-	/* Company Logo text in header */
-	width: 96%;
-	margin-left: 2%;
-}
-#mainwrapper header nav {
-	/*navigation links in header */
-	text-align: center;
-	background-color: rgba(255,255,255,1.00);
-	width: 98%;
-}
-#content #sidebar #adimage {
-	/* Container for image in sidebar */
-	width: 100%;
-}
-#content #sidebar nav {
-	/* Navigation bar for links in sidebar */
-	width: 96%;
-	padding-top: 7px;
-}
-#sidebar nav ul li {
-	display: inline-block;
-	width: 32%;
-	text-align: center;
-}
-#mainwrapper #content #sidebar {
-	/* sidebar */
-	padding-bottom: 0px;
-}
-#content .notOnDesktop {
-	/* Search box shown only in mobile and tablet view */
-	width: 100%;
-	text-align: center;
-	padding-left: 0px;
-	padding-right: 0px;
-}
-#content .notOnDesktop input {
-	width: 80%;
-	text-align: center;
-}
-#content #mainContent h3 {
-	/* Title under maincontent, if any */
-	font-size: 14px;
-}
-#content footer article {
-	/* Each foter article */
-	width: 96%;
-}
-}
-	
-	</style>	
-<script>var __adobewebfontsappname__="dreamweaver"</script>
-<script src="http://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
+        /* 右侧内容区样式 */
+        .content {
+            width: 80%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        /* banner 样式 */
+        .banner {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 内容板块容器样式 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 三列布局 */
+            gap: 20px; /* 间距 */
+        }
+        .content-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .content-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .content-card h3 {
+            margin: 0 0 10px 0;
+        }
+        .content-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        /* 响应式设计：当屏幕宽度小于 768px 时，布局会改变 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* 垂直排列 */
+            }
+            .sidebar, .content {
+                width: 100%;
+            }
+            .content-grid {
+                grid-template-columns: 1fr; /* 单列布局 */
+            }
+        }
+    </style>
 </head>
-
 <body>
-<div id="mainwrapper">
-  <header> 
-    <!--**************************************************************************
-    Header starts here. It contains Logo and 3 navigation links. 
-    ****************************************************************************-->
-    <div id="logo"><!-- <img src="logoImage.png" alt="sample logo"> --><!-- Company Logo text -->Logo</div>
-    <nav> <a href="#" title="Link">Nav1</a> <a href="#" title="Link">Nav2</a><a href="#" title="Link">Nav3</a> </nav>
-  </header>
-  <div id="content">
-    <div class="notOnDesktop"> 
-      <!-- This search box is displayed only in mobile and tablet laouts and not in desktop layouts -->
-      <input type="text" placeholder="Search">
+
+    <div class="sidebar">
+        <div class="nav-tree">
+            <div class="nav-title">主菜单 1</div>
+            <ul class="nav-list">
+                <li class="nav-item">子菜单 1.1</li>
+                <li class="nav-item">子菜单 1.2</li>
+                <li class="nav-item">子菜单 1.3</li>
+            </ul>
+
+            <div class="nav-title">主菜单 2</div>
+            <ul class="nav-list">
+                <li class="nav-item">子菜单 2.1</li>
+                <li class="nav-item">子菜单 2.2</li>
+            </ul>
+
+            <div class="nav-title">主菜单 3</div>
+            <ul class="nav-list">
+                <li class="nav-item">子菜单 3.1</li>
+                <li class="nav-item">子菜单 3.2</li>
+                <li class="nav-item">子菜单 3.3</li>
+                <li class="nav-item">子菜单 3.4</li>
+            </ul>
+        </div>
     </div>
-    <section id="mainContent"> 
-      <!--************************************************************************
-    Main Blog content starts here
-    ****************************************************************************-->
-      <h1><!-- Blog title -->Post Title</h1>
-      <h3><!-- Tagline -->SOME AWESOME HERO TAGLINE</h3>
-      <div id="bannerImage"><br><br>
-</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-      <aside id="authorInfo"> 
-        <!-- The author information is contained here -->
-        <h2>Author Name</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </aside>
-    </section>
-    <section id="sidebar"> 
-      <!--************************************************************************
-    Sidebar starts here. It contains a searchbox, sample ad image and 6 links
-    ****************************************************************************-->
-      <input type="text" placeholder="Search">
-      <div id="adimage"></div>
-      <nav>
-        <ul>
-          <li><a href="#" title="Link">Link1</a></li>
-          <li><a href="#" title="Link">Link2</a></li>
-          <li><a href="#" title="Link">Link3</a></li>
-          <li><a href="#" title="Link">Link4</a></li>
-          <li><a href="#" title="Link">Link5</a></li>
-          <li><a href="#" title="Link">Link6</a></li>
-        </ul>
-      </nav>
-    </section>
-    <footer> 
-      <!--************************************************************************
-    Footer starts here
-    ****************************************************************************-->
-      <article>
-        <h3>Footer1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </article>
-      <article>
-        <h3>Footer2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      </article>
-    </footer>
-  </div>
-  <div id="footerbar"><!-- Small footerbar at the bottom --></div>
-</div>
+
+    <div class="content">
+        <div class="banner">
+            <img src="https://via.placeholder.com/1200x200.png?text=Banner+Image" alt="Banner">
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Content+1" alt="Content 1">
+                <h3>内容标题 1</h3>
+                <p>这里是关于内容 1 的简短描述，用以吸引用户。</p>
+            </div>
+            <div class="content-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Content+2" alt="Content 2">
+                <h3>内容标题 2</h3>
+                <p>这里是关于内容 2 的简短描述，用以吸引用户。</p>
+            </div>
+            <div class="content-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Content+3" alt="Content 3">
+                <h3>内容标题 3</h3>
+                <p>这里是关于内容 3 的简短描述，用以吸引用户。</p>
+            </div>
+            <div class="content-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Content+4" alt="Content 4">
+                <h3>内容标题 4</h3>
+                <p>这里是关于内容 4 的简短描述，用以吸引用户。</p>
+            </div>
+            <div class="content-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Content+5" alt="Content 5">
+                <h3>内容标题 5</h3>
+                <p>这里是关于内容 5 的简短描述，用以吸引用户。</p>
+            </div>
+            <div class="content-card">
+                <img src="https://via.placeholder.com/300x200.png?text=Content+6" alt="Content 6">
+                <h3>内容标题 6</h3>
+                <p>这里是关于内容 6 的简短描述，用以吸引用户。</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript 逻辑部分
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有导航主项
+            const navTitles = document.querySelectorAll('.nav-title');
+
+            // 遍历每个主项，并为其添加点击事件监听器
+            navTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    // 获取与当前主项相邻的子菜单
+                    const subNavList = this.nextElementSibling;
+                    
+                    // 切换子菜单的显示/隐藏状态
+                    if (subNavList.style.display === 'block') {
+                        subNavList.style.display = 'none';
+                    } else {
+                        // 先隐藏所有子菜单
+                        document.querySelectorAll('.nav-list').forEach(list => {
+                            list.style.display = 'none';
+                        });
+                        // 再显示当前点击的子菜单
+                        subNavList.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

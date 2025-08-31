@@ -1,209 +1,65 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>响应式网页</title>
-    <style>
-        /* CSS 样式部分 */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex; /* 使用 Flexbox 布局 */
-            min-height: 100vh;
-        }
-
-        /* 左侧导航栏样式 */
-        .sidebar {
-            width: 20%;
-            background-color: #f4f4f4;
-            padding: 20px;
-            box-sizing: border-box; /* 包含 padding 和 border */
-            border-right: 1px solid #ccc;
-            overflow-y: auto; /* 超出部分可滚动 */
-        }
-        .nav-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
-        .nav-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: none; /* 默认隐藏子菜单 */
-        }
-        .nav-item {
-            padding: 10px 0;
-            cursor: pointer;
-            border-bottom: 1px solid #eee;
-        }
-        .nav-item:hover {
-            background-color: #e9e9e9;
-        }
-        /* 子菜单样式 */
-        .sub-nav-list {
-            padding-left: 20px;
-            list-style: none;
-        }
-
-        /* 右侧内容区样式 */
-        .content {
-            width: 80%;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-        }
-        /* banner 样式 */
-        .banner {
-            width: 100%;
-            height: 200px;
-            background-color: #333;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        /* 内容板块容器样式 */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 三列布局 */
-            gap: 20px; /* 间距 */
-        }
-        .content-card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .content-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .content-card h3 {
-            margin: 0 0 10px 0;
-        }
-        .content-card p {
-            font-size: 0.9em;
-            color: #666;
-        }
-        
-        /* 响应式设计：当屏幕宽度小于 768px 时，布局会改变 */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column; /* 垂直排列 */
-            }
-            .sidebar, .content {
-                width: 100%;
-            }
-            .content-grid {
-                grid-template-columns: 1fr; /* 单列布局 */
-            }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CL · 学术资源库</title>
+<meta name="description" content="CL 学术资源库 - 公共领域文本与学术资源阅读站点模板。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg: #0b0c0f;
+--panel: #12141a;
+--muted: #a8b0c3;
+--text: #e9ecf5;
+--brand: #3b82f6; /* 学术蓝 */
+--brand-2: #60a5fa;
+--ring: #60a5fa;
+--maxw: 1200px;
+--radius: 16px;
+--shadow: 0 10px 30px rgba(0,0,0,.35);
+--grad: linear-gradient(120deg, var(--brand), var(--brand-2));
+}
+body{
+margin:0; background:var(--bg); color:var(--text);
+font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans SC, Helvetica, Arial;
+line-height:1.6;
+}
+a{color:inherit; text-decoration:none}
+.container{max-width:var(--maxw); margin-inline:auto; padding:0 20px;}
+.btn{display:inline-flex; padding:.9rem 1.2rem; border-radius:999px; font-weight:600; border:1px solid rgba(122,132,153,.2); transition:.2s}
+.btn.primary{background:var(--grad); color:#fff; border:0}
+header{position:sticky; top:0; z-index:50; backdrop-filter:blur(8px); background:rgba(11,12,15,.7);}
+.nav{display:flex; justify-content:space-between; padding:18px 0}
+.logo{width:34px; height:34px; border-radius:8px; background:var(--grad);}
+.brand h1{margin:0;font-size:1.1rem;font-weight:800}
+nav ul{display:flex; gap:1rem;list-style:none;margin:0;padding:0}
+nav li a{color:var(--muted)}
+nav li a:hover{color:var(--text)}
+section{padding:40px 0}
+footer{padding:30px 0;border-top:1px solid rgba(122,132,153,.18);color:var(--muted);}
+.grid{display:grid;gap:20px}
+.cols-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+</style>
 </head>
 <body>
+<header>
+<div class="container nav">
+<a href="#" class="brand"><span class="logo"></span><h1>CL</h1></a>
+<nav>
+<ul>
+<li><a href="#col1">栏目一</a></li>
+<li><a href="#col2">栏目二</a></li>
+<li><a href="#col3">栏目三</a></li>
+<li><a href="#col4">栏目四</a></li>
+<li><a href="#col5">栏目五</a></li>
+</ul>
+</nav>
+</div>
+</header>
 
-    <div class="sidebar">
-        <div class="nav-tree">
-            <div class="nav-title">主菜单 1</div>
-            <ul class="nav-list">
-                <li class="nav-item">子菜单 1.1</li>
-                <li class="nav-item">子菜单 1.2</li>
-                <li class="nav-item">子菜单 1.3</li>
-            </ul>
 
-            <div class="nav-title">主菜单 2</div>
-            <ul class="nav-list">
-                <li class="nav-item">子菜单 2.1</li>
-                <li class="nav-item">子菜单 2.2</li>
-            </ul>
-
-            <div class="nav-title">主菜单 3</div>
-            <ul class="nav-list">
-                <li class="nav-item">子菜单 3.1</li>
-                <li class="nav-item">子菜单 3.2</li>
-                <li class="nav-item">子菜单 3.3</li>
-                <li class="nav-item">子菜单 3.4</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="content">
-        <div class="banner">
-            <img src="https://via.placeholder.com/1200x200.png?text=Banner+Image" alt="Banner">
-        </div>
-
-        <div class="content-grid">
-            <div class="content-card">
-                <img src="https://via.placeholder.com/300x200.png?text=Content+1" alt="Content 1">
-                <h3>内容标题 1</h3>
-                <p>这里是关于内容 1 的简短描述，用以吸引用户。</p>
-            </div>
-            <div class="content-card">
-                <img src="https://via.placeholder.com/300x200.png?text=Content+2" alt="Content 2">
-                <h3>内容标题 2</h3>
-                <p>这里是关于内容 2 的简短描述，用以吸引用户。</p>
-            </div>
-            <div class="content-card">
-                <img src="https://via.placeholder.com/300x200.png?text=Content+3" alt="Content 3">
-                <h3>内容标题 3</h3>
-                <p>这里是关于内容 3 的简短描述，用以吸引用户。</p>
-            </div>
-            <div class="content-card">
-                <img src="https://via.placeholder.com/300x200.png?text=Content+4" alt="Content 4">
-                <h3>内容标题 4</h3>
-                <p>这里是关于内容 4 的简短描述，用以吸引用户。</p>
-            </div>
-            <div class="content-card">
-                <img src="https://via.placeholder.com/300x200.png?text=Content+5" alt="Content 5">
-                <h3>内容标题 5</h3>
-                <p>这里是关于内容 5 的简短描述，用以吸引用户。</p>
-            </div>
-            <div class="content-card">
-                <img src="https://via.placeholder.com/300x200.png?text=Content+6" alt="Content 6">
-                <h3>内容标题 6</h3>
-                <p>这里是关于内容 6 的简短描述，用以吸引用户。</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // JavaScript 逻辑部分
-        document.addEventListener('DOMContentLoaded', function() {
-            // 获取所有导航主项
-            const navTitles = document.querySelectorAll('.nav-title');
-
-            // 遍历每个主项，并为其添加点击事件监听器
-            navTitles.forEach(title => {
-                title.addEventListener('click', function() {
-                    // 获取与当前主项相邻的子菜单
-                    const subNavList = this.nextElementSibling;
-                    
-                    // 切换子菜单的显示/隐藏状态
-                    if (subNavList.style.display === 'block') {
-                        subNavList.style.display = 'none';
-                    } else {
-                        // 先隐藏所有子菜单
-                        document.querySelectorAll('.nav-list').forEach(list => {
-                            list.style.display = 'none';
-                        });
-                        // 再显示当前点击的子菜单
-                        subNavList.style.display = 'block';
-                    }
-                });
-            });
-        });
-    </script>
-</body>
+<section id="col1">
 </html>
